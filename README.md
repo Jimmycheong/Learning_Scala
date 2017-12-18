@@ -1,4 +1,4 @@
-# Scala_Learning_Reading_CSVs
+# Jimmy's Scala Learning Repo
 
 The purpose of this repository to compile examples of scala tutorials for reference 
 
