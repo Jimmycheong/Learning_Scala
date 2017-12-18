@@ -1,1 +1,5 @@
 # Scala_Learning_Reading_CSVs
+
+The purpose of this repository to compile examples of scala tutorials for reference 
+
+1. Reading CSV in Scala
