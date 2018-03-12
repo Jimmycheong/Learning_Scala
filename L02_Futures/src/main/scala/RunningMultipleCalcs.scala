@@ -26,7 +26,7 @@ object RunningMultipleCalcs extends App {
   val result3 = Cloud.runAlgorithm(30)
 
   println("Before for-comprehension")
-  val result = for {
+  val result: Future[Int] = for {
     r1 <- result1
     r2 <- result2
     r3 <- result3
@@ -34,7 +34,7 @@ object RunningMultipleCalcs extends App {
 
   println("Before OnSuccess")
 
-  result onSuccess {
+  result onComplete {
     case result => println(s"total = $result")
   }
 

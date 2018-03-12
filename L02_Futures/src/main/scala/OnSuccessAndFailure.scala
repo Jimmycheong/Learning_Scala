@@ -1,11 +1,10 @@
-import scala.concurrent.{Future}
+import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.util.{Failure, Success}
-import scala.util.Random
+import scala.util.{Failure, Random, Success}
 
 object OnSuccessAndFailure extends App {
 
-  def sleep(time:Long) = Thread.sleep(time)
+  def sleep(time: Long) = Thread.sleep(time)
 
   println("starting calculation...")
 
@@ -14,12 +13,9 @@ object OnSuccessAndFailure extends App {
     if (Random.nextInt(500) > 250) throw new Exception("Yikes!")
   }
 
-  f.onSuccess {
-    case result => println(s"Success: $result")
-  }
-
-  f onFailure {
-    case t => println(s"Exception: ${t.getMessage}")
+  f onComplete  {
+    case Success(result) => println(s"Success: $result")
+    case Failure(t) => println(s"Exception: ${t.getMessage}")
   }
 
   // Do the rest of the work
